@@ -1,0 +1,37 @@
+<div class="box">
+  <!-- catigorey -->
+  <div class="row">
+    <div class="col-md-3">
+      <label for="categories" class="mb-2">Categories:</label>
+      <select name="Categories" class="form-control" #optionValue (change)="filterProduct(optionValue.value)">
+        <option *ngFor="let catigory of catigories" value="{{catigory}}">{{catigory}}</option>
+      </select>
+    </div>
+  </div>
+  <!-- cards -->
+  <div class="row" *ngIf="!isfetch">
+    <div class="col-md-3" *ngFor="let product of products">
+      <div class="item">
+        <figure [routerLink]="['/detail',product.id]">
+          <img src={{product.image}}>
+        </figure>
+        <figcaption >
+          <div class="data"  [routerLink]="['/detail',product.id]">
+            <h4>{{product.title | shortPipeTs:10}}</h4>
+            <p>{{product.description | shortPipeTs:80}}</p>
+          </div>
+          <div class="PriceAndSell">
+            <button type="button" class="btn btn-primary" (click)="add(product.id,product.title,product.price,product.image)" >Add To Cart</button>
+            <span>{{product.price}} LE</span>
+          </div>
+        </figcaption>
+      </div>
+    </div>
+  </div>
+  <!-- spinner -->
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="spinner-border text-primary" role="status" *ngIf="isfetch">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

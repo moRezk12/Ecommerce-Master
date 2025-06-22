@@ -1,0 +1,61 @@
+@use '../../../scss/variable.scss' as *;
+
+.box {
+  .row {
+    .col-md-3 {
+      margin: 10px 0px;
+      label {
+        color: $mainColor;
+        font-weight: 700;
+      }
+      .item {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 2px 5px 10px #ccc;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 0px 0px 20px #ccc;
+        }
+        figure {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            max-width: 60%;
+            height: 300px;
+          }
+        }
+        figcaption {
+          .data {
+            h4  {
+              color: $mainColor;
+              font: {
+                weight:700;
+              }
+            }
+            p {
+              line-height: 1.5;
+              text-overflow: ellipsis;
+            }
+          }
+          .PriceAndSell {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            span {
+              color: $mainColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}

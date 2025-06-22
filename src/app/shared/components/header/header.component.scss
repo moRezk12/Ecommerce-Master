@@ -1,0 +1,63 @@
+@use '../../../scss/variable.scss' as *;
+
+nav {
+  padding: 10px 0px;
+  background-color: white;
+  box-shadow: 0px 3px 10px #ccc,0px 6px 10px #fff;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: $mainColor;
+      margin: 0px;
+      font: {
+        weight:700;
+      }
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      li{
+        position: relative;
+        cursor: pointer;
+        margin: 0px 8px;
+        font: {
+          weight:500;
+          size: 17px;
+        }
+        transition: 0.3s;
+        &.active {
+          color: $mainColor;
+        }
+        &:hover {
+          color: $mainColor;
+        }
+        fa-icon{
+          font-size: 20px;
+          color: $mainColor;
+        }
+        span {
+          position: absolute;
+          top: -7px;
+          right: -10px;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          padding: 10px;
+          font-size: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+

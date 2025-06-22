@@ -1,0 +1,63 @@
+@use '../../../../scss/variable.scss' as *;
+@use '../../../../scss/mixin.scss' as *;
+// flexbox
+%flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row {
+  &:not(:last-of-type) {
+    background-color: white;
+  }
+  border-bottom: 1px solid #eee;
+  margin: 0px 5px;
+  &:nth-child(1) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    h5 {
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      @include breakpoint(small) {
+        font-size: 15px;
+      }
+      padding: 15px;
+      color: $mainColor;
+    }
+  }
+  &:nth-child(2) {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    @include breakpoint(small) {
+      font-size: 12px;
+    }
+    .subtotal,
+    .totla {
+      @extend %flex;
+      margin-top: 5px 0px;
+    }
+    span {
+      color: $mainColor;
+      &.Coupon {
+        @include breakpoint(small) {
+          font-size: 12px;
+        }
+        text-decoration: underline;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+button {
+  width: 100%;
+  border: 0px;
+
+  background-color: $mainColor;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}

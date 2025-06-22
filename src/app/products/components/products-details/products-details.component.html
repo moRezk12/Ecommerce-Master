@@ -1,0 +1,49 @@
+<div class="row mt-5" *ngIf="!isfetch">
+  <div class="col-md-5">
+    <img src={{product.image}}>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <h2>{{product.title}}</h2>
+      <igc-rating name="modelRating" max="5" value={{product.rating.rate}}></igc-rating>
+      <h6>price <span>${{product.price}}</span></h6>
+    </div>
+    <div class="row my-4">
+      <h3>About This item</h3>
+      <p>
+        {{product.description}}
+      </p>
+    </div>
+    <div class="row my-4">
+      <div class="info">
+        <fa-icon [icon]="faCheckCircle" data-done="true"></fa-icon>
+        <p> Avilabel : <span>in stock</span></p>
+      </div>
+      <div class="info">
+        <fa-icon [icon]="faCheckCircle" data-done="true"></fa-icon>
+        <p> category : <span>{{product.category | uppercase}}</span></p>
+      </div>
+      <div class="info">
+        <fa-icon [icon]="faCheckCircle" data-done="true"></fa-icon>
+        <p> shipping Area : <span>All over the world</span></p>
+      </div>
+    </div>
+    <div class="row my-4">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <input type="number" min="0" max={{product.rating.count}} value="1" class="form-control" #quantity>
+      </div>
+      <div class="col-sm-9 col-md-9 col-lg-9">
+        <button class="btn btn-primary" (click)="addCart()" [routerLink]="['/cart']">
+          Add To Cart
+          <fa-icon [icon]="faCartShopping"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- spinner -->
+<div class="row d-flex justify-content-center mt-5">
+  <div class="spinner-border text-primary" role="status" *ngIf="isfetch">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<nav>
+  <div class="container">
+    <h3>Store</h3>
+    <ul>
+      <li [routerLink]="['/products']">Products</li>
+      <li [routerLink]="['/cart']">
+        <fa-icon [icon]="faCartShopping"></fa-icon>
+        <span *ngIf="!(numberOfItem === 0) ">{{numberOfItem}}</span>
+      </li>
+    </ul>
+  </div>
+</nav>
